@@ -37,6 +37,19 @@ public class GameManager : MonoBehaviour
         _header.UpdateTotalMuffins(_totalMuffins);
         return addedMuffins;
     }
+
+
+    public bool TryPurchaseUpgrade(int currentCost)
+    {
+        if (_totalMuffins >= currentCost)
+        {
+            // Purchase
+            _totalMuffins -= currentCost;
+            return true;
+        }
+        return false;
+    }
+
     private void Start()
     {
         _header.UpdateTotalMuffins(0);
