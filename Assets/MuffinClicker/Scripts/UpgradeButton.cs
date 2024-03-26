@@ -10,9 +10,16 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _levelText;
     [SerializeField]
+    private TextMeshProUGUI _priceHolder;
+    [SerializeField]
     private int[] _costPerLevel;
 
     private int _level;
+
+    private void Start()
+    {
+        UpdateUI();
+    }
     public void OnUpgradeClicked()
     {
         int currentCost = _costPerLevel[_level];
@@ -20,8 +27,14 @@ public class UpgradeButton : MonoBehaviour
         if (purchasedUpgrade)
         {
             _level++;
-            _levelText.text = _level.ToString();
+            UpdateUI();
         }
 
+    }
+
+    private void UpdateUI()
+    {
+        _levelText.text = _level.ToString();
+        _priceHolder.text = _costPerLevel[_level].ToString();
     }
 }
