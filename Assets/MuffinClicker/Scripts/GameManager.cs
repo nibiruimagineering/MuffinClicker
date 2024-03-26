@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         {
             // Purchase
             _totalMuffins -= currentCost;
+            _header.UpdateTotalMuffins(_totalMuffins);
             return true;
         }
         return false;

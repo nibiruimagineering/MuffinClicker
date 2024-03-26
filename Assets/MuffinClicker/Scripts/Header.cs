@@ -17,15 +17,7 @@ public class Header : MonoBehaviour
     /// <param name="counterParam">The total muffins</param>
     public void UpdateTotalMuffins(int counterParam)
     {
-        //if (counterParam == 1)
-        //{
-        //    _totalMuffinsText.text = $"{counterParam} muffin";
-        //}
-        //else 
-        //{
-        //    _totalMuffinsText.text = $"{counterParam} muffins";
-        //}
-        // Conditional expression
+
         _totalMuffinsText.text = counterParam == 1 ? "1 muffin" : $"{counterParam} muffins";
     }
 }
