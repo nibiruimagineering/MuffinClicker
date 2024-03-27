@@ -15,12 +15,23 @@ public class GameManager : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField]
     private float _critChance = 0.01f;
+
     private int _muffinsPerClick = 1;
     private int _totalMuffins = 0;
-    /// <summary>
-    /// Adds muffins to the total muffin count.
-    /// </summary>
-    /// <returns>Returns the added muffin count.</returns>
+
+    private int TotalMuffins
+    {
+        get
+        {
+            return _totalMuffins;
+        }
+        set 
+        {
+            _totalMuffins = value;
+            _header.UpdateTotalMuffins(TotalMuffins);
+        }
+    }
+
     public int AddMuffins()
     {
         // Crit Logic
@@ -33,19 +44,19 @@ public class GameManager : MonoBehaviour
         {
             addedMuffins = _muffinsPerClick;
         }
-        _totalMuffins += addedMuffins;
-        _header.UpdateTotalMuffins(_totalMuffins);
+        TotalMuffins += addedMuffins;
+
         return addedMuffins;
     }
 
 
     public bool TryPurchaseUpgrade(int currentCost)
     {
-        if (_totalMuffins >= currentCost)
+        if (TotalMuffins >= currentCost)
         {
             // Purchase
-            _totalMuffins -= currentCost;
-            _header.UpdateTotalMuffins(_totalMuffins);
+            TotalMuffins -= currentCost;
+            // _header.UpdateTotalMuffins(TotalMuffins);
             return true;
         }
         return false;
