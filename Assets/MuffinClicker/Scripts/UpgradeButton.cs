@@ -16,6 +16,8 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField]
     private float _costPowerScale = 1.5f;
 
+
+
     private int _level;
 
     private int CurrentCost
@@ -45,5 +47,11 @@ public class UpgradeButton : MonoBehaviour
     {
         _levelText.text = _level.ToString();
         _priceHolder.text = CurrentCost.ToString();
+    }
+
+    public void TotalMuffinsChanged(int totalMuffin)
+    {
+        bool canAfford = totalMuffin >= CurrentCost;
+        _priceHolder.color = canAfford ? Color.green : Color.red;
     }
 }
