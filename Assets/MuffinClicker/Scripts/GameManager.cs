@@ -11,7 +11,7 @@ using UnityEngine.Events;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    public UnityEvent OnTotalMuffinsChanged;
+    public UnityEvent<int> OnTotalMuffinsChanged;
 
     [Range(0f, 1f)]
     [SerializeField]
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         set 
         {
             _totalMuffins = value;
-            OnTotalMuffinsChanged.Invoke();
+            OnTotalMuffinsChanged.Invoke(_totalMuffins);
         }
     }
 

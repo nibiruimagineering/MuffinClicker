@@ -1981,7 +1981,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a99c37d820a94f8711f99a86c8cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _header: {fileID: 2098545963}
+  OnTotalMuffinsChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2098545963}
+        m_TargetAssemblyTypeName: Header, Assembly-CSharp
+        m_MethodName: UpdateTotalMuffins
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _critChance: 0.01
 --- !u!4 &1933656104
 Transform:
