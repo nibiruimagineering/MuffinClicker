@@ -458,6 +458,7 @@ MonoBehaviour:
   _levelText: {fileID: 6216710415003856948}
   _priceHolder: {fileID: 2098747207}
   _costPerLevel: 03000000050000000a000000
+  _costPowerScale: 1.5
 --- !u!1 &681202084
 GameObject:
   m_ObjectHideFlags: 0

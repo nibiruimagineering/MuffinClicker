@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 /// <summary>
 /// 1.Handles the OnMuffin "button click".
 /// 2.Keeps track of our total muffins.
@@ -10,8 +11,8 @@ using UnityEngine;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Header _header;
+    public UnityEvent OnTotalMuffinsChanged;
+
     [Range(0f, 1f)]
     [SerializeField]
     private float _critChance = 0.01f;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
         set 
         {
             _totalMuffins = value;
-            _header.UpdateTotalMuffins(TotalMuffins);
+            OnTotalMuffinsChanged.Invoke();
         }
     }
 
@@ -65,6 +66,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _header.UpdateTotalMuffins(0);
+        TotalMuffins = 0; 
     }
 }
