@@ -13,6 +13,8 @@ public class UpgradeButton : MonoBehaviour
     private TextMeshProUGUI _priceHolder;
     [SerializeField]
     private int[] _costPerLevel;
+    [SerializeField]
+    private float _costPowerScale = 1.5f;
 
     private int _level;
 
@@ -20,20 +22,7 @@ public class UpgradeButton : MonoBehaviour
     {
         get 
         {
-            // Data Validation solves error we get when we hit the final 3rd upgrade
-            //length of our level array is 3
-            //0 1 2
-
-            int length = _costPerLevel.Length;
-
-            if (length == 0 ) 
-            {
-                return 0;
-            }
-
-            int index = Mathf.Clamp(_level,0,length - 1);
-
-            return _costPerLevel[index];
+            return 5 + Mathf.RoundToInt(Mathf.Pow(_level, _costPowerScale));
         }
     }
 
@@ -44,7 +33,7 @@ public class UpgradeButton : MonoBehaviour
     public void OnUpgradeClicked()
     {
         int currentCost = CurrentCost;
-        bool purchasedUpgrade = _gameManager.TryPurchaseUpgrade(currentCost);
+        bool purchasedUpgrade = _gameManager.TryPurchaseUpgrade(currentCost, _level);
         if (purchasedUpgrade)
         {
             _level++;
