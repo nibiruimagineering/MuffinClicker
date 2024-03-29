@@ -12,11 +12,7 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _priceHolder;
     [SerializeField]
-    private int[] _costPerLevel;
-    [SerializeField]
     private float _costPowerScale = 1.5f;
-
-
 
     private int _level;
 

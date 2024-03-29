@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-/// <summary>
-/// 1.Handles the OnMuffin "button click".
-/// 2.Keeps track of our total muffins.
-/// 3.Handles "Crit" logic.
-/// 4.Update Header to display total muffins.
-/// </summary>
+
 public class GameManager : MonoBehaviour
 {
     public UnityEvent<int> OnTotalMuffinsChanged;
@@ -49,7 +44,6 @@ public class GameManager : MonoBehaviour
 
         return addedMuffins;
     }
-
 
     public bool TryPurchaseUpgrade(int currentCost, int level)
     {
