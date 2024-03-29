@@ -457,7 +457,6 @@ MonoBehaviour:
   _gameManager: {fileID: 1933656103}
   _levelText: {fileID: 6216710415003856948}
   _priceHolder: {fileID: 2098747207}
-  _costPerLevel: 03000000050000000a000000
   _costPowerScale: 1.5
 --- !u!1 &681202084
 GameObject:
@@ -530,7 +529,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -24.99997}
+  m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739821365
@@ -2201,7 +2200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216710413592254641, guid: a419d27ab3f522742a3dd9672e2fda7c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -776.4932
+      value: -878.97766
       objectReference: {fileID: 0}
     - target: {fileID: 6216710413592254642, guid: a419d27ab3f522742a3dd9672e2fda7c, type: 3}
       propertyPath: m_IsActive

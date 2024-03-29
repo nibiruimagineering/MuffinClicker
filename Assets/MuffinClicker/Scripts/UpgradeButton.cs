@@ -39,7 +39,7 @@ public class UpgradeButton : MonoBehaviour
         }
 
     }
-    private void UpdateUI()
+    public void UpdateUI()
     {
         _levelText.text = _level.ToString();
         _priceHolder.text = CurrentCost.ToString();

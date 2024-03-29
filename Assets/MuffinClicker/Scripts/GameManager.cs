@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     private int _muffinsPerClick = 1;
     private int _totalMuffins = 0;
+    private int _muffinsPerSecond = 0;
+
 
     private int TotalMuffins
     {
@@ -27,7 +29,6 @@ public class GameManager : MonoBehaviour
             OnTotalMuffinsChanged.Invoke(_totalMuffins);
         }
     }
-
     public int AddMuffins()
     {
         // Crit Logic
@@ -40,7 +41,7 @@ public class GameManager : MonoBehaviour
         {
             addedMuffins = _muffinsPerClick;
         }
-        TotalMuffins += addedMuffins;
+        TotalMuffins += addedMuffins + _muffinsPerSecond;
 
         return addedMuffins;
     }
@@ -58,8 +59,14 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    private void MuffinsPerClickTimer()
+    {
+        _muffinsPerSecond++;
+    }
+
     private void Start()
     {
-        TotalMuffins = 0; 
+        TotalMuffins = 0;
+        InvokeRepeating("MuffinsPerClickTimer", 2.0f, 1.0f);
     }
 }
