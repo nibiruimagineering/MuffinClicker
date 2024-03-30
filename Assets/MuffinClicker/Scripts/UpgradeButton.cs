@@ -14,6 +14,7 @@ public class UpgradeButton : MonoBehaviour
     [SerializeField]
     private float _costPowerScale = 1.5f;
 
+
     private int _level;
 
     private int CurrentCost

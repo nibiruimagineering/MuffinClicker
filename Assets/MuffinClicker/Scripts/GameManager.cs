@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,14 +8,16 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public UnityEvent<int> OnTotalMuffinsChanged;
+    public UnityEvent<int> OnMuffinsPerSecondChanged;
+
 
     [Range(0f, 1f)]
     [SerializeField]
     private float _critChance = 0.01f;
-
     private int _muffinsPerClick = 1;
     private int _totalMuffins = 0;
     private int _muffinsPerSecond = 0;
+
 
     private int TotalMuffins
     {
@@ -28,6 +31,22 @@ public class GameManager : MonoBehaviour
             OnTotalMuffinsChanged.Invoke(_totalMuffins);
         }
     }
+
+    private int MuffinsPerSecond
+    { 
+        get 
+        { 
+            return _muffinsPerSecond;
+        } 
+        set
+        {
+            _muffinsPerSecond = value;
+            OnMuffinsPerSecondChanged.Invoke(_muffinsPerSecond);
+        }
+    }
+
+
+
     public int AddMuffins()
     {
         // Crit Logic
@@ -64,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             TotalMuffins -= currentCost;
             level++;
+            MuffinsPersecondTimer(level);
+            InvokeRepeating("MuffinsPersecondTimer", 1.0f, 1.0f);
 
             return true;
         }
@@ -73,7 +94,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         TotalMuffins = 0;
-        InvokeRepeating("MuffinsPersecondTimer", 2.0f, 1.0f);
+        MuffinsPerSecond = 0;
 
     }
 
@@ -81,10 +102,12 @@ public class GameManager : MonoBehaviour
     {
 
        Debug.Log(string.Format("Muffins Per Second = {0}", _muffinsPerSecond));
+
     }
 
-   private void MuffinsPersecondTimer()
+   private void MuffinsPersecondTimer(int level)
     {
-        _muffinsPerSecond++;
+        MuffinsPerSecond = 1 + level;
+        //TotalMuffins += MuffinsPerSecond;
     }
 }
