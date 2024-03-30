@@ -23,7 +23,6 @@ public class UpgradeButton : MonoBehaviour
             return 5 + Mathf.RoundToInt(Mathf.Pow(_level, _costPowerScale));
         }
     }
-
     private void Start()
     {
         UpdateUI();
@@ -32,6 +31,7 @@ public class UpgradeButton : MonoBehaviour
     {
         int currentCost = CurrentCost;
         bool purchasedUpgrade = _gameManager.TryPurchaseUpgrade(currentCost, _level);
+
         if (purchasedUpgrade)
         {
             _level++;
@@ -39,6 +39,18 @@ public class UpgradeButton : MonoBehaviour
         }
 
     }
+
+    public void OnSugarRushClicked()
+    {
+        int currentCost = CurrentCost;
+        bool purchaseSugarRush = _gameManager.TryPurchaseSugarRush(currentCost, _level);
+        if (purchaseSugarRush)
+        {
+            _level++;
+            UpdateUI();
+        }
+    }
+
     public void UpdateUI()
     {
         _levelText.text = _level.ToString();

@@ -14,8 +14,7 @@ public class GameManager : MonoBehaviour
 
     private int _muffinsPerClick = 1;
     private int _totalMuffins = 0;
-    //private int _muffinsPerSecond = 0;
-
+    private int _muffinsPerSecond = 0;
 
     private int TotalMuffins
     {
@@ -59,15 +58,33 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    public bool TryPurchaseSugarRush(int currentCost, int level)
+    {
+        if (TotalMuffins >= currentCost)
+        {
+            TotalMuffins -= currentCost;
+            level++;
+
+            return true;
+        }
+        return false;
+    }
+
     private void Start()
     {
         TotalMuffins = 0;
-        //InvokeRepeating("MuffinsPerClickTimer", 1.0f, 1.0f);
+        InvokeRepeating("MuffinsPersecondTimer", 2.0f, 1.0f);
+
     }
 
-    //private void MuffinsPerClickTimer()
-    //{
-    //    _muffinsPerSecond = 1;
+    private void Update()
+    {
 
-    //}
+       Debug.Log(string.Format("Muffins Per Second = {0}", _muffinsPerSecond));
+    }
+
+   private void MuffinsPersecondTimer()
+    {
+        _muffinsPerSecond++;
+    }
 }
