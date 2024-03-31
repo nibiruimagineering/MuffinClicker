@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public UnityEvent<int> OnTotalMuffinsChanged;
     public UnityEvent<int> OnMuffinsPerSecondChanged;
 
-
     [Range(0f, 1f)]
     [SerializeField]
     private float _critChance = 0.01f;
@@ -92,6 +91,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         TotalMuffins = 0;
+        MuffinsPerSecond = 0;
     }
 
     public void MuffinsPerSecondCall()
