@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public UnityEvent<int> OnTotalMuffinsChanged;
-    public UnityEvent<int> OnMuffinsPerSecondChanged;
+    //public UnityEvent<int> OnMuffinsPerSecondChanged;
 
     [Range(0f, 1f)]
     [SerializeField]
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _muffinsPerSecond = value;
-            OnMuffinsPerSecondChanged.Invoke(_muffinsPerSecond);
+            //OnMuffinsPerSecondChanged.Invoke(_muffinsPerSecond);
         }
     }
 
