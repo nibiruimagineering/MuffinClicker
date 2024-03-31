@@ -10,6 +10,9 @@ public class Header : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI _totalMuffinsText;
+
+    [SerializeField]
+    private TextMeshProUGUI _muffinsPerSecond;
     /// <summary>
     /// Updates total muffins text
     /// </summary>
@@ -18,5 +21,11 @@ public class Header : MonoBehaviour
     {
 
         _totalMuffinsText.text = counterParam == 1 ? "1 muffin" : $"{counterParam} muffins";
+        //_muffinsPerSecond.text = counterParam == 1 ? "1 muffin" : $"{counterParam} muffins";
+    }
+
+    public void UpdateMuffinsPerSecond(int counterParam)
+    {
+        _muffinsPerSecond.text = counterParam == 1 ? "1 muffins/second" : $"{counterParam} muffins/second";
     }
 }

@@ -458,6 +458,7 @@ MonoBehaviour:
   _levelText: {fileID: 6216710415003856948}
   _priceHolder: {fileID: 2098747207}
   _costPowerScale: 1.5
+  _isMuffinUpgrade: 0
 --- !u!1 &681202084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2175,6 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _totalMuffinsText: {fileID: 1710630146}
+  _muffinsPerSecond: {fileID: 1613461460}
 --- !u!114 &2098747207 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6216710414530994902, guid: a419d27ab3f522742a3dd9672e2fda7c, type: 3}
@@ -2336,7 +2338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6216710414832764432, guid: a419d27ab3f522742a3dd9672e2fda7c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnSugarRushClicked
+      value: OnUpgradeClicked
       objectReference: {fileID: 0}
     - target: {fileID: 6216710414832764432, guid: a419d27ab3f522742a3dd9672e2fda7c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2515,6 +2517,7 @@ MonoBehaviour:
   _levelText: {fileID: 6216710415003856950}
   _priceHolder: {fileID: 6216710415003856949}
   _costPowerScale: 5.5
+  _isMuffinUpgrade: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

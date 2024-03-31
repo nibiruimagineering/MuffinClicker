@@ -9,14 +9,13 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public UnityEvent<int> OnTotalMuffinsChanged;
-    //public UnityEvent<int> OnMuffinsPerSecondChanged;
 
     [Range(0f, 1f)]
     [SerializeField]
     private float _critChance = 0.01f;
     private int _muffinsPerClick = 1;
     private int _totalMuffins = 0;
-    private int _muffinsPerSecond = 0;
+    private int _muffinsPerSecond;
     private int TotalMuffins
     {
         get
@@ -39,10 +38,8 @@ public class GameManager : MonoBehaviour
         set
         {
             _muffinsPerSecond = value;
-            //OnMuffinsPerSecondChanged.Invoke(_muffinsPerSecond);
         }
     }
-
 
     public int AddMuffins()
     {
@@ -61,16 +58,18 @@ public class GameManager : MonoBehaviour
         return addedMuffins;
     }
 
-    public bool TryPurchaseUpgrade(int currentCost, int level)
+    public bool TryPurchaseUpgrade(int currentCost, int level, bool isMuffinUpgrade)
     {
         if (TotalMuffins >= currentCost)
         {
-            // Purchase
+            // purchase
             TotalMuffins -= currentCost;
             level++;
             _muffinsPerClick = 1 + level * 2;
+
             return true;
         }
+
         return false;
     }
 
@@ -80,7 +79,7 @@ public class GameManager : MonoBehaviour
         {
             TotalMuffins -= currentCost;
             level++;
-            _muffinsPerSecond = 1 + level * 2;
+            _muffinsPerSecond = 0 + level * 1;
             //MuffinsPerSecond(_muffinsPerSecond);
             InvokeRepeating("MuffinsPerSecondCall", 0, 1);
             return true;
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         TotalMuffins = 0;
-        MuffinsPerSecond = 0;
+        //MuffinsPerSecond = 0;
     }
 
     public void MuffinsPerSecondCall()

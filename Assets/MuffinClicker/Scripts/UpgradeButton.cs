@@ -13,6 +13,8 @@ public class UpgradeButton : MonoBehaviour
     private TextMeshProUGUI _priceHolder;
     [SerializeField]
     private float _costPowerScale = 1.5f;
+    [SerializeField]
+    private bool _isMuffinUpgrade;
 
 
     private int _level;
@@ -31,7 +33,7 @@ public class UpgradeButton : MonoBehaviour
     public void OnUpgradeClicked()
     {
         int currentCost = CurrentCost;
-        bool purchasedUpgrade = _gameManager.TryPurchaseUpgrade(currentCost, _level);
+        bool purchasedUpgrade = _gameManager.TryPurchaseUpgrade(currentCost, _level, _isMuffinUpgrade);
 
         if (purchasedUpgrade)
         {
